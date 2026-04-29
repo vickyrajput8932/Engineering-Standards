@@ -10,7 +10,7 @@ This repository is the single source of truth for engineering standards, archite
 
 - [What Is This Repo?](#what-is-this-repo)
 - [Document Map](#document-map)
-- [The Three-Document Core System](#the-three-document-core-system)
+- [The Core System](#the-core-system)
 - [Governing Principle](#governing-principle)
 - [Quick Start — New Project](#quick-start--new-project)
 - [Quick Start — AI Sessions](#quick-start--ai-sessions)
@@ -43,10 +43,13 @@ Every document is technology-agnostic and applies to Node.js, Python, Java, .NET
 
 | File | Type | Purpose |
 |------|------|---------|
-| [ENGINEERING_MANDATE.md](ENGINEERING_MANDATE.md) | 📜 Core Standard | Non-negotiable rules. The law. Referenced in every code review and AI prompt. |
+| [SKILL.md](SKILL.md) | 🤖 AI Skill | The Claude skill definition. Activates the full governance and engineering OS in any AI session. Load this first. |
+| [ENGINEERING_MANDATE.md](ENGINEERING_MANDATE.md) | 📜 Core Standard | Non-negotiable engineering rules. The law. Referenced in every code review and AI prompt. |
 | [ARCHITECTURE_PLAYBOOK.md](ARCHITECTURE_PLAYBOOK.md) | 🏗️ Tactical Guide | How to apply the mandate in practice. Decision trees, patterns, layer guides, code review checklist. |
 | [AI_COLLABORATION_PROTOCOL.md](AI_COLLABORATION_PROTOCOL.md) | 🤖 AI Workflow | How to use AI tools (Claude, Copilot, Cursor) without drifting from standards. Contains the session prefix to paste at the start of every AI session. |
-| [GOVERNANCE_TEMPLATE.md](GOVERNANCE_TEMPLATE.md) | 🏛️ Governance | Per-project governance pointer file. Links this project to the canonical standards and configures AI enforcement. |
+| [GOVERNANCE_TEMPLATE.md](GOVERNANCE_TEMPLATE.md) | 🏛️ Governance | Per-project governance pointer. Links a project to the canonical standards and configures AI enforcement. |
+| [PROJECT_VISION_TEMPLATE.md](PROJECT_VISION_TEMPLATE.md) | 🎯 Template | Per-project vision template. Captures the why and long-term direction (1 page, fill via interview or manually). |
+| [PROJECT_CONTEXT_TEMPLATE.md](PROJECT_CONTEXT_TEMPLATE.md) | 📋 Template | Per-project PRD template. Captures what/who/how/when, KPIs, roadmap, and current state. |
 | [CLEAN-ARCHITECTURE-GUIDE_.net.pdf](CLEAN-ARCHITECTURE-GUIDE_.net.pdf) | 📚 Reference | Clean Architecture reference guide for .NET projects. |
 | [Project Setup Playbook (Idea to Production).docx](<Project Setup Playbook (Idea to Production).docx>) | 🚀 Playbook | Step-by-step guide from project idea through to production deployment. |
 | [Solopreneur_Web_Dev_Playbook.docx](Solopreneur_Web_Dev_Playbook.docx) | 🧑‍💻 Playbook | Web development workflow and decision-making guide for solo developers. |
@@ -57,6 +60,17 @@ Every document is technology-agnostic and applies to Node.js, Python, Java, .NET
 ---
 
 ### Detailed Descriptions
+
+#### 🤖 AI Skill & Enforcement Layer
+
+##### [SKILL.md](SKILL.md)
+**The Claude skill definition that activates the full engineering OS. Load this first in every AI session.**
+
+Defines the `universal-ai-product-engineering-os` skill for Claude. When loaded, it transforms Claude into a unified Principal Architect + Staff Engineer + Security Architect + Engineering Manager + Product Delivery Leader. Contains the full Governance Discovery Protocol — Claude will search for governance docs in the project repo, conversation, or knowledge base before producing any output, and refuses to proceed without them (or flags fallback mode explicitly). Defines three tiers of authority: Tier 1 (universal standards + per-project VISION and CONTEXT docs), Tier 2 (execution playbooks), and Tier 3 (business context). Includes embedded non-negotiables as a fallback minimum (Clean Architecture dependency table, strict prohibitions, SOLID/DRY, security rules). Also defines the full Execution Engine, Code Review Mode, Rejection Logic, Role Simulation (BA/PO/PM + Architect + Dev + QA + DevOps), and standardised Response Format for every substantive output.
+
+> **Reach for this when:** starting any AI session — paste or reference this skill to ensure Claude enforces governance, validates architecture, and never produces output that violates the standards.
+
+---
 
 #### 📜 Core Standards (Read These First)
 
@@ -93,6 +107,26 @@ Explains why AI tools default to convenient shortcuts without enforcement, and p
 A structured template that links an individual project to the canonical engineering standards in this repository. It declares which standards apply (ENGINEERING_MANDATE.md, ARCHITECTURE_PLAYBOOK.md, AI_COLLABORATION_PROTOCOL.md), their version and status, the source-of-truth URL, and the local mirror path. Includes a project context table for capturing project name, mode (MVP/Production/Hybrid), tech stack, architecture style, primary owner, and AI assistant. Contains a project-specific overrides section — default is no overrides — with the explicit rule that convenience is not a valid justification. Also defines the AI Enforcement Protocol: AI assistants that encounter this file must read it first, load the canonical docs, validate every output against the applicable standards, cite specific rules when flagging violations, and refuse to proceed if standards are inaccessible. Enables the Governance Discovery Protocol so AI tools can self-configure to the correct standards automatically.
 
 > **Reach for this when:** setting up a new project and needing to wire it to the engineering standards, or configuring an AI assistant to enforce the correct rules for a specific codebase.
+
+---
+
+#### 🎯 Per-Project Templates
+
+##### [PROJECT_VISION_TEMPLATE.md](PROJECT_VISION_TEMPLATE.md)
+**The why and the long-term direction of a project. One page. Fill once, review yearly.**
+
+A structured one-page template for capturing the long-term vision of an individual project. Contains 7 sections: a single North Star sentence, the Problem Worth Solving (who feels it, how often, why current solutions fail), a Target User / Market table (primary user, secondary users, geography, segment), Long-Term Outcome (what the world looks like in 3–5 years if the project succeeds), Core Principles / Non-Negotiables (3–5 things that will not be compromised under any pressure), What Success Looks Like (the journalist headline in 3 years), and What This Project Is NOT (deliberate scope exclusions to guard against scope creep). Can be filled via Claude interview mode (attach and say "interview me") or manually. Intentionally kept to 1 page — if it's longer, it's planning, not vision.
+
+> **Reach for this when:** starting a new project and needing to anchor all decisions to a clear, shared purpose — or when the team has lost alignment on what the project is fundamentally trying to achieve.
+
+---
+
+##### [PROJECT_CONTEXT_TEMPLATE.md](PROJECT_CONTEXT_TEMPLATE.md)
+**The operational PRD. Captures what, who, how, when, and where the project stands today.**
+
+A comprehensive 15-section working PRD template that serves as the living operational document for any project. Covers: Identity (name, owner, repo, status, mode), Purpose (one-line pitch, problem solved, core value proposition), Users & Use Cases (primary persona, secondary personas, top 5 use cases), Scope (in/out/future), Tech Stack (language, frameworks, DB, ORM, auth, cache, infra, CI/CD, monitoring, AI stack), Architecture (style, folder structure, key patterns, API style, deviations from Architecture Playbook), Domain Glossary (project-specific terms for AI tooling to use), External Integrations, Constraints (SLA, security, compliance, budget, timeline, team size), KPIs & Success Metrics (North Star metric, leading indicators, health metrics), Roadmap (Now/Next/Later + milestones), Risk Register, Team & Workflow, Current State (what's built, what's broken, in-progress, blockers, tech debt), and References. Can be filled via Claude interview mode or manually. Review quarterly or on material change.
+
+> **Reach for this when:** kicking off a new project and needing a complete project definition that AI tools (and teammates) can use to understand the full context without asking repeated questions — or when the project is drifting and needs a documented anchor.
 
 ---
 
@@ -154,27 +188,33 @@ A PDF reference guide illustrating how the Clean Architecture principles defined
 
 ---
 
-## The Three-Document Core System
+## The Core System
 
-The engineering system is built around three interlocking documents that must be used together:
+All documents work together as a layered system. The order matters:
 
 ```
-ENGINEERING_MANDATE.md       ← The Law (what is required, what is prohibited)
+SKILL.md                      ← The AI Activator (loads all governance into Claude)
         ↓
-ARCHITECTURE_PLAYBOOK.md     ← The Patterns (how to apply the law in practice)
+ENGINEERING_MANDATE.md        ← The Law (what is required, what is prohibited)
         ↓
-AI_COLLABORATION_PROTOCOL.md ← The Enforcement (how AI tools follow both)
+ARCHITECTURE_PLAYBOOK.md      ← The Patterns (how to apply the law in practice)
         ↓
-GOVERNANCE_TEMPLATE.md       ← The Wiring (how each project activates the standards)
+AI_COLLABORATION_PROTOCOL.md  ← The Enforcement (how AI tools follow both)
+        ↓
+GOVERNANCE_TEMPLATE.md        ← The Wiring (how each project activates the standards)
+        ↓
+PROJECT_VISION_TEMPLATE.md    ← The Why (long-term direction, per project)
+        ↓
+PROJECT_CONTEXT_TEMPLATE.md   ← The What/How/When (operational PRD, per project)
 ```
 
 **When to use each:**
 - Starting a new feature? → Read `ENGINEERING_MANDATE.md` Sections 3–4, then use the decision tree in `ARCHITECTURE_PLAYBOOK.md` Section 1.
 - Reviewing code? → Use the checklist in `ARCHITECTURE_PLAYBOOK.md` Section 8.
-- Starting an AI session? → Paste the session prefix from `AI_COLLABORATION_PROTOCOL.md`.
+- Starting an AI session? → Load `SKILL.md`, then paste the session prefix from `AI_COLLABORATION_PROTOCOL.md`.
 - Unsure where code belongs? → Walk the "What Goes Where" tree in `ARCHITECTURE_PLAYBOOK.md` Section 1.
 - Tempted to take a shortcut? → Read `ARCHITECTURE_PLAYBOOK.md` Section 6 (Consequences).
-- Setting up a new project? → Copy `GOVERNANCE_TEMPLATE.md` into your project repo and fill in the fields.
+- Setting up a new project? → Copy `GOVERNANCE_TEMPLATE.md`, `PROJECT_VISION_TEMPLATE.md`, and `PROJECT_CONTEXT_TEMPLATE.md` into your project repo and fill them in.
 
 ---
 
@@ -190,23 +230,25 @@ GOVERNANCE_TEMPLATE.md       ← The Wiring (how each project activates the stan
 
 1. Read `ENGINEERING_MANDATE.md` fully before writing any code.
 2. Reference `ARCHITECTURE_PLAYBOOK.md` during design and implementation.
-3. Copy `GOVERNANCE_TEMPLATE.md` into your project repo, fill in the project context fields, and commit it as `GOVERNANCE_TEMPLATE.md` or `docs/governance/GOVERNANCE.md`.
-4. Create a `PROJECT_CONTEXT.md` in your project repo using the template in `AI_COLLABORATION_PROTOCOL.md`.
-5. Follow the Project Setup Playbook for project scaffolding.
-6. Use the Start the app locally guide to configure local dev environments.
+3. Copy `GOVERNANCE_TEMPLATE.md` into your project repo and fill in the project context fields.
+4. Copy `PROJECT_VISION_TEMPLATE.md` into your project repo — fill it in via Claude interview mode or manually (say "interview me to fill this out" with the template attached).
+5. Copy `PROJECT_CONTEXT_TEMPLATE.md` into your project repo — fill it in via Claude interview mode or manually.
+6. Follow the Project Setup Playbook for project scaffolding.
+7. Use the Start the app locally guide to configure local dev environments.
 
 ---
 
 ## Quick Start — AI Sessions
 
-Paste the session prefix from `AI_COLLABORATION_PROTOCOL.md` at the start of every AI session (Claude, Copilot, Cursor, or any other tool). Then attach or reference:
+Load `SKILL.md` into your Claude Project or paste it at the start of the session. Then provide:
 
 - `ENGINEERING_MANDATE.md`
 - `ARCHITECTURE_PLAYBOOK.md`
-- Your project's `PROJECT_CONTEXT.md`
-- Your project's `GOVERNANCE_TEMPLATE.md` (the AI will use it to self-configure)
+- Your project's `GOVERNANCE_TEMPLATE.md` (Claude will self-configure from this)
+- Your project's `PROJECT_VISION_TEMPLATE.md`
+- Your project's `PROJECT_CONTEXT_TEMPLATE.md`
 
-> Never rely on the AI to infer the standards. Always provide them explicitly.
+> Never rely on the AI to infer the standards. Always provide them explicitly. The SKILL will refuse to produce architecture or code output until it can confirm governance docs are accessible.
 
 ---
 

@@ -16,7 +16,6 @@ This repository is the single source of truth for engineering standards, archite
 - [Quick Start — AI Sessions](#quick-start--ai-sessions)
 - [Architecture Overview](#architecture-overview)
 - [Key Rules at a Glance](#key-rules-at-a-glance)
-- [Playbooks & Guides](#playbooks--guides)
 - [Definition of Done](#definition-of-done)
 - [Anti-Patterns (Strictly Prohibited)](#anti-patterns-strictly-prohibited)
 
@@ -40,17 +39,96 @@ Every document is technology-agnostic and applies to Node.js, Python, Java, .NET
 
 ## Document Map
 
-| File | Type | Purpose |
-|------|------|---------|
-| [ENGINEERING_MANDATE.md](./ENGINEERING_MANDATE.md) | 📜 Core Standard | Non-negotiable rules. The law. Referenced in every code review and AI prompt. |
-| [ARCHITECTURE_PLAYBOOK.md](./ARCHITECTURE_PLAYBOOK.md) | 🏗️ Tactical Guide | How to apply the mandate in practice. Decision trees, patterns, layer guides, code review checklist. |
-| [AI_COLLABORATION_PROTOCOL.md](./AI_COLLABORATION_PROTOCOL.md) | 🤖 AI Workflow | How to use AI tools (Claude, Copilot, Cursor) without drifting from standards. Contains the session prefix to paste at the start of every AI session. |
-| [CLEAN-ARCHITECTURE-GUIDE_.net.pdf](./CLEAN-ARCHITECTURE-GUIDE_.net.pdf) | 📚 Reference | Clean Architecture reference guide for .NET projects. |
-| [Project Setup Playbook (Idea to Production).docx](./Project%20Setup%20Playbook%20%28Idea%20to%20Production%29.docx) | 🚀 Playbook | Step-by-step guide from project idea through to production deployment. |
-| [Solopreneur_Web_Dev_Playbook.docx](./Solopreneur_Web_Dev_Playbook.docx) | 🧑‍💻 Playbook | Web development workflow and decision-making guide for solo developers. |
-| [Personal Devs OS.docx](./Personal%20Devs%20OS.docx) | ⚙️ Workflow | Personal developer operating system — habits, processes, and tooling setup. |
-| [BA prompt.docx](./BA%20prompt.docx) | 💬 Prompts | Business Analyst prompts for requirements gathering and documentation. |
-| [Start the app locally.docx](./Start%20the%20app%20locally.docx) | 🛠️ Guide | Instructions for setting up and running a project locally. |
+### 📜 Core Standards (Read These First)
+
+---
+
+#### [ENGINEERING_MANDATE.md](./ENGINEERING_MANDATE.md)
+**The law. Read this before writing a single line of code.**
+
+The master engineering standard covering 34 sections. It defines what is required and what is prohibited — covering Clean Architecture (4 layers, inward dependency rule), entity and DTO discipline, repository pattern, cross-cutting concerns (audit, soft delete, logging, caching, authorization), frontend architecture, component hierarchy, shared code, DRY enforcement, zero hard-coding policy, UI/UX standards, WCAG 2.2 accessibility, security (OWASP, zero-trust), scalability, performance (Core Web Vitals), testing standards, observability, error handling, feature flags, documentation standards, and version control discipline. Ends with a complete Definition of Done and a list of prohibited anti-patterns.
+
+**Reach for this when:** you need to know the rule on any engineering topic, or when reviewing code against the standard.
+
+---
+
+#### [ARCHITECTURE_PLAYBOOK.md](./ARCHITECTURE_PLAYBOOK.md)
+**The tactical companion to the Mandate. Answers "how do I do it correctly?"**
+
+Provides 10 sections of hands-on guidance: a "What Goes Where" decision tree for placing any piece of code in the correct layer, deep-dive layer responsibilities with folder structures and code examples for all four Clean Architecture layers (Domain, Application, Infrastructure, Presentation), cross-cutting concern patterns (automatic audit trail, soft delete, current-user context, structured logging, authorization, caching, error handling), data access patterns (Repository and Unit of Work with real code), an illustrated catalogue of 8 common mistakes with wrong vs. right code, a consequence analysis showing what happens weeks/months/years after architecture violations, a 7-step new feature development workflow, a complete code review checklist, and a FAQ that pre-empts the most common rationalisations for taking shortcuts. Ends with technology-specific notes for Node.js/TypeScript, Python, Java/.NET, and Go.
+
+**Reach for this when:** you are designing a new feature, implementing a pattern, doing a code review, or wondering where a specific piece of code belongs.
+
+---
+
+#### [AI_COLLABORATION_PROTOCOL.md](./AI_COLLABORATION_PROTOCOL.md)
+**How to use AI tools without drifting from engineering standards.**
+
+Explains why AI tools default to convenient shortcuts without enforcement, and provides the complete enforcement mechanism. Contains the ready-to-paste session prefix (a ~60-rule summary of the Mandate) for Claude, Copilot, Cursor, or any other AI tool. Covers how to configure in-editor tools (Copilot, Cursor) via `.cursorrules` or `.github/copilot-instructions.md`, how to use with agentic/autonomous AI, a template for the per-project `PROJECT_CONTEXT.md` supplement, a comprehensive "Red Flags in AI Output" reference (architecture, data/logic, UI/UX, shared code, security, and operational failures), a challenge-back question bank to interrogate AI-generated code, anti-erosion discipline for long sessions, and a final gate checklist before committing any AI-generated code.
+
+**Reach for this when:** starting any AI-assisted coding session, setting up a new AI tool, or auditing AI-generated output before committing.
+
+---
+
+### 🏗️ Project & Development Playbooks
+
+---
+
+#### [Project Setup Playbook (Idea to Production).docx](./Project%20Setup%20Playbook%20%28Idea%20to%20Production%29.docx)
+**End-to-end guide for taking a project from concept to live production.**
+
+Covers the full project lifecycle: validating the idea, defining scope, choosing the tech stack, scaffolding the codebase with the correct Clean Architecture folder structure, setting up CI/CD pipelines, configuring environments (dev/staging/prod), handling secrets and config, establishing database migrations, wiring up observability (logging, error tracking, metrics), and deploying for the first time. Acts as a launchpad checklist to ensure no critical setup step is skipped.
+
+**Reach for this when:** starting a brand-new project and needing a reliable, repeatable setup process from scratch.
+
+---
+
+#### [Solopreneur_Web_Dev_Playbook.docx](./Solopreneur_Web_Dev_Playbook.docx)
+**Web development workflow and decision-making guide optimised for solo builders.**
+
+Covers how to make fast, high-quality decisions when working alone — including how to prioritise features, when to build vs. buy, how to manage scope without a team, how to structure work sessions, and how to maintain engineering standards without the natural checks provided by a team environment. Applies the Engineering Mandate in a solo context where speed matters but quality cannot be sacrificed.
+
+**Reach for this when:** working as a solo developer or indie builder who needs a structured, efficient approach to shipping production-grade software without a team.
+
+---
+
+#### [Personal Devs OS.docx](./Personal%20Devs%20OS.docx)
+**Your personal developer operating system — habits, routines, and tools.**
+
+Defines the day-to-day operating habits, workflow routines, tooling setup, and decision-making frameworks that keep a developer productive, consistent, and mentally clear. Covers how to structure a work day, how to manage context switching, how to handle planning and task tracking, how to maintain a learning practice, and how to avoid the common traps that erode developer effectiveness over time.
+
+**Reach for this when:** setting up your personal development environment and workflow, or when productivity and consistency feel off and you need to reset to a structured system.
+
+---
+
+#### [BA prompt.docx](./BA%20prompt.docx)
+**Business Analyst prompt templates for structured requirements gathering.**
+
+Contains ready-to-use prompt templates for engaging with AI (or human stakeholders) to extract, clarify, and document business requirements. Covers how to elicit functional requirements, define acceptance criteria, identify edge cases, map user journeys, and produce unambiguous feature specifications that development can act on without revisiting every assumption. Designed to bridge the gap between a business idea and a developer-ready specification.
+
+**Reach for this when:** starting a new feature or project and needing to turn a vague idea into a clear, complete specification before writing any code.
+
+---
+
+#### [Start the app locally.docx](./Start%20the%20app%20locally.docx)
+**Step-by-step instructions for setting up and running any project locally.**
+
+Covers environment prerequisites, cloning the repo, installing dependencies, configuring environment variables from the `.env.example`, running database migrations, seeding initial data, starting the development server, and verifying the app is running correctly. Also includes common troubleshooting steps for the most frequent local setup issues.
+
+**Reach for this when:** onboarding onto a project for the first time, setting up on a new machine, or helping a new developer get the app running locally within minutes.
+
+---
+
+### 📚 Reference Material
+
+---
+
+#### [CLEAN-ARCHITECTURE-GUIDE_.net.pdf](./CLEAN-ARCHITECTURE-GUIDE_.net.pdf)
+**A concrete Clean Architecture implementation reference for .NET projects.**
+
+A PDF reference guide illustrating how the Clean Architecture principles defined in the Engineering Mandate and Architecture Playbook are realised specifically in .NET (ASP.NET Core). Shows the project structure, class organisation, dependency injection wiring, EF Core configuration patterns, and how each of the four layers maps to .NET project conventions. Useful for bridging the language-agnostic playbook to .NET-specific implementation details.
+
+**Reach for this when:** building a .NET project and needing to translate the architecture principles into concrete .NET folder structures, project references, and framework conventions.
 
 ---
 
@@ -170,19 +248,6 @@ For the full decision tree, layer-by-layer responsibilities, and real code examp
 - Untested code does not ship
 - Business logic must be testable without any infrastructure (no real DB, no real network)
 - If a module is hard to test, it is architecturally wrong — fix the architecture, don't skip the test
-
----
-
-## Playbooks & Guides
-
-| Document | When to Use |
-|----------|-------------|
-| [Project Setup Playbook](./Project%20Setup%20Playbook%20%28Idea%20to%20Production%29.docx) | Starting a new project from scratch |
-| [Solopreneur Web Dev Playbook](./Solopreneur_Web_Dev_Playbook.docx) | Solo web development workflow and prioritisation |
-| [Personal Devs OS](./Personal%20Devs%20OS.docx) | Setting up your personal development habits and tooling |
-| [BA Prompt](./BA%20prompt.docx) | Structuring requirements and business analysis conversations |
-| [Start the App Locally](./Start%20the%20app%20locally.docx) | Running any project in a local environment |
-| [Clean Architecture Guide (.NET)](./CLEAN-ARCHITECTURE-GUIDE_.net.pdf) | .NET-specific Clean Architecture reference |
 
 ---
 

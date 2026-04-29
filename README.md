@@ -39,7 +39,25 @@ Every document is technology-agnostic and applies to Node.js, Python, Java, .NET
 
 ## Document Map
 
-### 📜 Core Standards (Read These First)
+### Quick Reference
+
+| File | Type | Purpose |
+|------|------|---------|
+| [ENGINEERING_MANDATE.md](./ENGINEERING_MANDATE.md) | 📜 Core Standard | Non-negotiable rules. The law. Referenced in every code review and AI prompt. |
+| [ARCHITECTURE_PLAYBOOK.md](./ARCHITECTURE_PLAYBOOK.md) | 🏗️ Tactical Guide | How to apply the mandate in practice. Decision trees, patterns, layer guides, code review checklist. |
+| [AI_COLLABORATION_PROTOCOL.md](./AI_COLLABORATION_PROTOCOL.md) | 🤖 AI Workflow | How to use AI tools (Claude, Copilot, Cursor) without drifting from standards. Contains the session prefix to paste at the start of every AI session. |
+| [CLEAN-ARCHITECTURE-GUIDE_.net.pdf](./CLEAN-ARCHITECTURE-GUIDE_.net.pdf) | 📚 Reference | Clean Architecture reference guide for .NET projects. |
+| [Project Setup Playbook (Idea to Production).docx](./Project%20Setup%20Playbook%20%28Idea%20to%20Production%29.docx) | 🚀 Playbook | Step-by-step guide from project idea through to production deployment. |
+| [Solopreneur_Web_Dev_Playbook.docx](./Solopreneur_Web_Dev_Playbook.docx) | 🧑‍💻 Playbook | Web development workflow and decision-making guide for solo developers. |
+| [Personal Devs OS.docx](./Personal%20Devs%20OS.docx) | ⚙️ Workflow | Personal developer operating system — habits, processes, and tooling setup. |
+| [BA prompt.docx](./BA%20prompt.docx) | 💬 Prompts | Business Analyst prompts for requirements gathering and documentation. |
+| [Start the app locally.docx](./Start%20the%20app%20locally.docx) | 🛠️ Guide | Instructions for setting up and running a project locally. |
+
+---
+
+### Detailed Descriptions
+
+#### 📜 Core Standards (Read These First)
 
 ---
 
@@ -64,13 +82,13 @@ Provides 10 sections of hands-on guidance: a "What Goes Where" decision tree for
 #### [AI_COLLABORATION_PROTOCOL.md](./AI_COLLABORATION_PROTOCOL.md)
 **How to use AI tools without drifting from engineering standards.**
 
-Explains why AI tools default to convenient shortcuts without enforcement, and provides the complete enforcement mechanism. Contains the ready-to-paste session prefix (a ~60-rule summary of the Mandate) for Claude, Copilot, Cursor, or any other AI tool. Covers how to configure in-editor tools (Copilot, Cursor) via `.cursorrules` or `.github/copilot-instructions.md`, how to use with agentic/autonomous AI, a template for the per-project `PROJECT_CONTEXT.md` supplement, a comprehensive "Red Flags in AI Output" reference (architecture, data/logic, UI/UX, shared code, security, and operational failures), a challenge-back question bank to interrogate AI-generated code, anti-erosion discipline for long sessions, and a final gate checklist before committing any AI-generated code.
+Explains why AI tools default to convenient shortcuts without enforcement, and provides the complete enforcement mechanism. Contains the ready-to-paste session prefix (a ~60-rule summary of the Mandate) for Claude, Copilot, Cursor, or any other AI tool. Covers how to configure in-editor tools via `.cursorrules` or `.github/copilot-instructions.md`, how to use with agentic/autonomous AI, a template for the per-project `PROJECT_CONTEXT.md` supplement, a comprehensive "Red Flags in AI Output" reference (architecture, data/logic, UI/UX, shared code, security, and operational failures), a challenge-back question bank to interrogate AI-generated code, anti-erosion discipline for long sessions, and a final gate checklist before committing any AI-generated code.
 
 **Reach for this when:** starting any AI-assisted coding session, setting up a new AI tool, or auditing AI-generated output before committing.
 
 ---
 
-### 🏗️ Project & Development Playbooks
+#### 🏗️ Project & Development Playbooks
 
 ---
 
@@ -119,7 +137,7 @@ Covers environment prerequisites, cloning the repo, installing dependencies, con
 
 ---
 
-### 📚 Reference Material
+#### 📚 Reference Material
 
 ---
 

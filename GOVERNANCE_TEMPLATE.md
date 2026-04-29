@@ -7,17 +7,23 @@
 
 ## 📜 Applicable Standards
 
-This project follows the universal engineering governance documents:
-
+### Universal — apply to ALL projects (from standards repo)
 | Document | Version | Status |
 |---|---|---|
 | `ENGINEERING_MANDATE.md` | v1.0 | ✅ Required |
 | `ARCHITECTURE_PLAYBOOK.md` | v1.0 | ✅ Required |
 | `AI_COLLABORATION_PROTOCOL.md` | v1.0 | ✅ Required |
 
-**Source of truth:** `https://github.com/vickyrajput8932/Engineering-Standards.git`
+### Per-project — required for THIS project (from this repo)
+| Document | Path | Status |
+|---|---|---|
+| `PROJECT_VISION.md` | `/docs/PROJECT_VISION.md` | ✅ Required |
+| `PROJECT_CONTEXT.md` | `/docs/PROJECT_CONTEXT.md` | ✅ Required |
 
-**Local copy (if mirrored):** `/docs/governance/`
+**Standards repo:** `https://github.com/vickyrajput8932/Engineering-Standards.git`
+**Templates for Vision & Context:** standards repo `/templates/`
+
+**Local copy of universal docs (if mirrored):** `/docs/governance/`
 
 ---
 
